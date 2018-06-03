@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.0.min.js"></script>
+	<style type="text/css">
+		html,body,ul,li{
+			margin: 0;
+			padding: 0;
+		}
+		.left{
+			float: left;
+			height: 302px;
+            border: 2px solid red;
+			overflow: hidden;
+		}
+		.left ul li{
+			width: 400px;
+			height: 300px;
+			line-height: 300px;
+			text-align: center;
+			border:1px solid red;
+			list-style: none;
+		}
+		.right{
+			float: left;
+		}
+		.right ul li{
+			list-style: none;
+			width: 200px;
+			margin: 5px;
+			height: 90px;
+			line-height: 90px;
+			text-align: center;
+			border:2px solid #000;
+		}
+      .clearfix::after {
+            height: 0;
+            content: "";
+            display: block;
+            clear: both;
+        }
+	</style>
+</head>
+<body>
+	<div class="left ">
+		<ul class="clearfix">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="right">
+		<ul class="bit">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+</body>
+	<script>
+		$(function(){
+			$(".right .bit li").mouseover(function(){
+				var index = $(this).index();
+				var TOP = (-300)*index+'px';
+				$(".left ul").stop().animate({marginTop:TOP},500);
+				// if(index==0) {
+				// 	$(".left ul").stop().animate({"margin-top":"0"},500);
+				// };
+				// if(index==1) {
+				// 	$(".left ul").stop().animate({"margin-top":"-300"},500);
+				// };
+				// if(index==2) {
+				// 	$(".left ul").stop().animate({"margin-top":"-600"},500);
+				// };
+			})
+		})
+	</script>
+</html>

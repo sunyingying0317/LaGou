@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lianxi1</title>
+	<script src="./js/jquery-3.2.0.min.js"></script>
+	<style type="text/css">
+		html,body,ul,li{
+			margin: 0;
+			padding: 0;
+		}
+		ul li{
+			list-style: none;
+		}
+		.clearfix:after{
+			display: block;
+			content: "";
+			height: 0;
+			clear: both;
+		}
+		ul.nav-head{
+			width: 290px;
+			margin: 0 auto;
+		}
+		ul.nav-head li>a{
+			background-color: blue;
+		}
+		ul.nav-head li>a:hover{
+			background-color: yellow;
+		}
+		.nav-content {
+            display: none;
+        }
+        .nav-content li {
+            background-color: #f00;
+        }
+        .nav-content li:hover {
+            background-color: blue;
+        }
+        ul.nav-head li>a, .nav-content li {
+            width: 200px;
+            height: 30px;
+            text-decoration: none;
+            color: #000000;
+            line-height: 30px;
+            text-align: center;
+            display: block;
+        }
+        .hide{
+        	display: none;
+        }
+        .show{
+        	display: block;
+        }
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul class="nav-head">
+			<li>
+				<a href="javascript:void(0)">1</a>
+				<ul class="nav-content">
+					<li>1</li>
+					<li>1</li>
+					<li>1</li>
+					<li>1</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:void(0)">2</a>
+				<ul class="nav-content">
+					<li>2</li>
+					<li>2</li>
+					<li>2</li>
+					<li>2</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:void(0)">3</a>
+				<ul class="nav-content">
+					<li>3</li>
+					<li>3</li>
+					<li>3</li>
+					<li>3</li>
+				</ul>
+			</li>
+		</ul>
+		<script>
+		$(function(){
+			console.log($("ul.nav-head li>a"));
+			$("ul.nav-head li>a").click(function(){
+				$(".nav-content").hide();
+				$(this).siblings(".nav-content").show();
+				console.log($(this))
+			})
+		})
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拉勾网</title>
+	<script src="./js/jquery-3.2.0.min.js"></script>
+	<style type="text/css">
+		html,body,a,p,h1,h2,ul,li,strong,span{
+			margin: 0;
+			padding: 0;
+		}
+		a{text-decoration: none;}
+		.nav{
+			height: 30px;
+			background-color: #333;
+			background-repeat: no-repeat;
+			background-position: 35px 5px;
+			background-image: url(./images/iphone.png);
+		}
+		.nav-head a{
+			color: #00b38a;
+			font-size: 14px;
+			line-height: 15px;
+			margin-left: 50px;
+		}
+		.nav-head a:hover{
+			color: #08d7a2;
+		}
+		.nav-head, .nav-line{
+			float: left;
+		}
+		.line{
+			height: 15px;
+			width: 1px;
+			margin-top: 5px;
+			margin-left: 10px;
+			float: left;
+			background-color: #5d5d5d;
+		}
+		.nav-line a {
+			font-size: 14px;
+			padding-left: 10px;
+			color: #c4c3c3;
+		}
+		.nav-line a:hover{
+			color: #fff;
+		}
+		.nav-right{
+			float: right;
+			margin-right: 30px;
+		}
+		.nav-right a{
+			color: #c4c3c3;
+			/*padding-right: 3px;*/
+			line-height: 30px;
+			padding: 0 8px;			
+		}
+	    .nav-login{
+			border-right: 1px solid #5d5d5d;
+		}
+		.head{
+			height: 56px;
+		}
+		.nav-right a:hover{
+			color: #fff;
+		}
+		.logo{
+			background: url(./images/logo.png) 80px 10px no-repeat;
+			width: 390px;
+			float: left;
+		}
+		.logo h1{
+			padding-left: 190px;
+			height: 44px;
+			line-height: 44px;
+			padding-top: 10px;
+			color: rgb(51, 51, 51);
+			font-weight: 400;
+			font-size: 18px;
+		}
+		.logo a {
+			font-size: 14px;
+			color: #999;
+			padding-left: 8px;
+		}
+		.head-nav{
+			width: 410px;
+			height: 55px;
+			float: left;
+		}
+		.clearfix:after{
+			display: block;
+			content: "";
+			clear: both;
+			height: 0;
+		} 
+		.head-nav li{
+			list-style: none;
+			width: 55px;
+			height: 46px;
+			float: left;
+			margin: 5px 13px;
+		}
+		.head-nav li a{
+			font-size: 18px;
+			font-weight: 400;
+			display: block;
+			padding: 0 8px;
+			line-height: 46px;
+			color: #999;
+		}
+		.head-nav ul li a:hover{
+			border-bottom:2px solid #00b38a;
+			color: #333;
+		}
+		.head-nav ul .head-head{
+			border-bottom: 2px solid #00b38a;
+			color: #333;
+		}
+		.bar{
+			position: relative;
+			height: 132px;
+			background: #F2F5F4;
+		}
+		.bar-content{
+	    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    width: 936px;
+    height: 46px;
+    margin: auto;}
+		.bar-content input{
+			width: 762px;
+			height: 20px;
+			float: left;
+			font-size: 16px;
+			line-height: 20px;
+			padding: 12px 16px;
+		}
+		.bar-search{
+			margin: 1px 0;
+			width: 135.5px;
+			height: 46px;
+			float: left;
+			background: #00a57f;
+		}
+		.bar-search:hover{
+			background: #00b38a;
+		}
+		.bar-bottom{
+			position: absolute;
+			top:53px;
+			width: 938px;
+			height: 22px;
+		}
+		.bar-bottom p{
+			display: inline-block;
+			font-size: 14px;
+			color: #777;
+		}
+		.bar-bottom a{
+			padding: 0 8px;
+			color: #00b38a;
+			font-size: 14px;
+		}
+		.bar-bottom a:hover{
+			text-decoration: underline;
+		}
+		.bar-search a{
+			color: #fff;
+			line-height: 46px;
+			font-size: 18px;
+			font-weight: 400;
+			padding-left: 50px;
+		}
+		.content{
+			height: 2170px;
+		}
+		.contenter{
+			height: 2170px;
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.content-bar{
+			height: 386px;
+			padding-top: 30px; 
+		}
+		.content-left{
+			/*position: relative;*/
+			width: 321px;
+			height: 385px;
+			float: left;
+		}
+		.content-menu{
+			position: relative;
+			width: 321px;
+			height: 55px;
+		}
+		.content-left h2{
+			display: inline-block;
+			padding-left: 15px;
+			height: 55px;
+			line-height: 55px;
+			font-size: 18px;
+			font-weight: 500;
+		}
+		.content-left a{
+		    padding: 0 5px;
+    		white-space: nowrap;
+    		color: #555;
+    		font-style: 14px;
+		}
+		.content-left a:hover{
+			color: #00b38a;
+			text-decoration: underline;
+		}
+		.menu-photo{
+			display: inline-block;
+			float: right;
+			margin: 20px 5px 0 0;
+			width: 6px;
+			height: 11px;
+			background-image: url(./images/1.png);
+		}
+		.content-right{
+			width: 840px;
+			height: 346px;
+			float: right;
+			background-image: url(./images/kun.png);
+			background-size: 840px 346px;
+			margin-top: 20px;
+		}
+		.content-top{
+			height: 53px;
+			margin: 52px 0 14px 0;
+			border-bottom: 1px solid #E8E8E8;
+		}
+		.content-top li{
+			list-style: none;
+			float: left;
+			height: 52px;
+			font-size: 16px;
+			line-height: 52px;
+			margin-right: 50px;			
+		}
+		.content-top .top-left{
+			border-bottom: 2px solid #333;			
+		}
+		.content-top .top-left a{
+			color: #333;
+		}
+		.content-top .top-right a{
+				color: #999;
+		}
+		.content-middle{
+			height: 709px;
+		}
+		.middle-ul{
+			height: 634px;
+		}
+		.content-middle li{
+			width: 389px;
+			height: 200px;
+			float: left;
+			list-style: none;
+			margin: 4.5px;
+			border: 1px solid #E8E8E8;
+		}
+		.main-head{
+			width: 351px;
+			height: 22px;
+			margin: 20px 19px 0 19px;
+		}
+		.main-head a{
+			color: #555;
+			font-size: 16px;
+			font-weight: 400;
+		}
+		.main-head a:hover{
+			color: #00b38a;
+		}
+		.main-head span{
+			color: #999;
+			font-size: 14px;
+		}
+		.main-head strong{
+			color: #fa6041;
+			font-size: 16px;
+			float: right;
+		}
+		.experience{
+			margin: 0 19px;
+			width: 351px;
+			height: 30px;
+		}
+		.experience p{			
+			color: #999;	
+			height: 30px;
+			line-height: 30px;		
+			font-size: 14px;
+		}
+		.table{
+			width: 351px;
+			height: 48px;
+			margin: 5px 19px 0 19px;
+			border-bottom:1px dashed #E0E0E0;
+		}
+		.table span{
+			display: block;
+			float: left;
+			width: 73px;
+			height: 28px;
+			line-height: 28px;
+			margin-right: 10px;
+			text-align: center;
+			font-size: 12px;
+			border: 1px solid #f0f0f0;
+		}
+		.expand{
+			width: 351px;
+			height: 50px;
+			margin: 15px 19px 0 19px;
+			background:url(./images/yidong.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-future{
+			background:url(./images/weilai.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-car{
+			background:url(./images/lechebang.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-ping{
+			background:url(./images/ping.jpg) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-game{
+			background:url(./images/game.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-dock{
+			background:url(./images/dock.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-net{
+			background:url(./images/net.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-gamecar{
+			background:url(./images/qisike.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand-electron{
+			background:url(./images/dianzi.png) 0 0 no-repeat ;
+			background-size: 40px 40px;
+		}
+		.expand p{
+			padding-left: 60px;
+			color: #999;
+			font-size: 14px;
+		}
+		.expand a{
+			color: #333;
+			padding-top: 5px;
+			font-size: 14px;
+		}
+		.expand a:hover{
+			color: #00b38a;
+		}
+		.middle-more{
+			height: 44px;
+			margin-top: 20px;
+		}
+		.middle-more a{
+			display: block;
+			text-align: center;
+		    width: 387px;
+    		height: 42px;
+    		line-height: 40px;
+    		margin: 0 auto;
+    		border: 1px solid #00B38A;
+    		background-color: #fff;		
+			font-weight: 500;
+			font-size: 16px;
+    		color: #00b38a; 
+		}
+		.middle-more a:hover{
+			color: #fff;
+			background:#00b38a; 
+		}
+		.content-center{
+			height: 652px;
+		}
+		.content-center li{
+			width: 286px;
+			list-style: none;
+			float: left;
+			margin: 16px 7px 0 5px;
+			height: 270px;
+			border: 1px solid #EEE;
+		}
+		.top-top a{
+			display: block;
+			width: 80px;
+			height: 80px;
+			background-image: url(./images/juanpi.png);
+			background-size: 80px 80px;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+		.top-top .top-science{
+			background-image: url(./images/xinyou.jpg);
+			background-size: 80px 80px;
+		}
+		.top-top .top-fair{
+			background-image: url(./images/fair.jpg);
+			background-size: 80px 80px;
+		}
+		.top-top .top-heart{
+			background-image: url(./images/heart.png);
+			background-size: 80px 80px;
+		}
+		.top-top .top-company{
+			background-image: url(./images/company.png);
+			background-size: 80px 80px;
+		}
+		.top-top .top-pig{
+			background-image: url(./images/pig.png);
+			background-size: 80px 80px;
+		}
+		.top-top .top-sky{
+			background-image: url(./images/sky.png);
+			background-size: 80px 80px;
+		}
+		.top-top .top-mouse{
+			background-image: url(./images/mouse.jpg);
+			background-size: 80px 80px;
+		}
+		.top-head, .top-middle, .top-fotter{
+			width: 260px;
+			height: 22px;
+			margin: 0 auto;
+			text-align: center;		
+		}
+		.top-head{
+			margin-top: 13px;
+		}
+		.top-head a{
+			font-size: 16px;
+			color: #333;
+		}
+		.top-middle{
+			margin-top: 10px;
+			color: #999;
+			font-size: 14px;
+		}
+		.top-fotter{
+			color: #333;
+			font-size: 14px;
+			margin-top: 10px;
+		}
+		.center-fotter{
+			height: 47px;
+			width: 286px;
+			margin-top: 20px;
+		}
+		.center-fotter a{
+			display: block;
+			width: 90px;
+			float: left;
+			text-align: center;
+			font-size: 14px;
+			margin: 5px 2.2px;
+			height: 35px;
+		}
+		.center-fotter .center-bottom{
+			border-left: 1px solid #EDEDED;
+			border-right: 1px solid #EDEDED;
+		}
+		.fotter-top{
+			color: #00b38a;
+		}
+		.fotter-middle{
+			color: #333;
+		}
+		.fotter-middle:hover{
+			color: #00b38a;
+		}
+		.content-center .top-more{
+			display: block;
+			width: 389px;
+			height: 44px;
+			line-height: 44px;
+			color: #00b38a;
+			margin: 16px auto 0;
+			text-align: center;
+			border:  1px solid #00b38a;
+		}
+		.content-center .top-more:hover{
+			background: #00b38a;
+			color: #fff;
+		}
+		.content-fotter li{
+			margin-top: 15px;
+			float: left;
+			list-style: none;
+			padding: 0 10px;
+		}
+		.content-fotter li a{
+			color: #555;
+			height: 15px;
+			line-height: 15px;
+			font-size: 14px;
+		}
+		.content-fotter li a:hover{
+			color: #00b38a;
+			text-decoration: underline;
+		}
+		.bottom{
+			position: relative;
+		}
+		.content-last{
+			height: 60px;
+			background-color: #00b38a;
+			margin-top: 30px;
+		}
+		.last-left{
+			position: relative;
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.last-left .content-office{
+			float: left;
+			position: absolute;
+			left: 0;
+			top: -26px;
+			width: 180px;
+			height: 60px;
+		}
+		.last-left .content-logo span{
+			float: left;
+			padding-left: 180px;
+			color: #fff;
+			display: inline-block;
+		    height: 60px;
+		    line-height: 60px;
+		    vertical-align: top;
+		    font-size: 20px;
+		}
+		.last-left .content-logo strong{
+			color: #fff;
+			display: inline-block;
+		    height: 60px;
+		    line-height: 60px;
+		    width: 422px;
+		    font-size: 20px;
+		    padding-left: 160px;
+		}
+		.content-tip {
+            position: fixed;
+            bottom: 0;
+            z-index: 9999;
+            width: 100%;
+        }
+        .content-ab{
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	z-index: 9999;
+        	width: 100%;
+        }
+		.content-none{
+			height: 68px;
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<div class="nav-head">
+			<a href="#">拉勾APP</a>
+		</div>
+		<div class="nav-line">
+			<div class="line"></div>
+				<a href="#">进入企业版</a>
+		</div>
+		<div class="nav-right">
+			<a href="#" class="nav-login">登录</a>
+			<a href="#">注册</a>
+		</div>
+	</div>
+	<div class="head">
+		<div class="logo">
+			<h1>全国站<a href="#">[切换城市]</a></h1>		
+		</div>
+		<div class="head-nav">
+			<ul class="clearfix">
+				<li class="head-head"><a href="#">首页</a></li>
+				<li><a href="#">公司</a></li>
+				<li><a href="#">校园</a></li>
+				<li><a href="#">言辞</a></li>
+				<li><a href="#">大鲲</a></li>
+			</ul>	
+		</div>
+	</div>
+	<div class="bar">
+		<div class="bar-content">
+			<input type="text" placeholder="搜索职位、公司或地点" class="bar-contenter">
+			<div class="bar-search">
+				<p><a href="#">搜索</a></p>
+			</div>
+			<div class="bar-bottom">
+				<p>热门搜索：</p>
+				<a href="">Java</a>
+				<a href="">新媒体运营</a>
+				<a href="">UI设计师</a>
+				<a href="">PHP</a>
+				<a href="">营销经理</a>
+				<a href="">产品经理</a>
+				<a href="">C++</a>
+				<a href="">内容运营</a>
+				<a href="">拉勾APP</a>
+			</div>
+		</div>		
+	</div>
+	<div class="content">
+		<div class="contenter">
+			<div class="content-bar">
+				<div class="content-left">
+					<div content-menu>
+						<h2>技术</h2>
+						<a href="">Java</a>
+						<a href="">PHP</a>
+						<a href="">C++</a>
+						<a href="">Android</a>
+						<i class="menu-photo"></i>
+					</div>
+					<div content-menu>
+						<h2>产品</h2>
+						<a href="">产品总监</a>
+						<a href="">产品经理</a>
+						<i class="menu-photo"></i>
+					</div>
+					<div content-menu>
+						<h2>设计</h2>
+						<a href="">UI设计师</a>
+						<a href="">交互设计</a>
+						<a href="">网页设计师</a>
+						<i class="menu-photo"></i>
+					</div>
+					<div content-menu>
+						<h2>运营</h2>
+						<a href="">新媒体运营</a>
+						<a href="">编辑</a>
+						<a href="">数据运营</a>
+						<i class="menu-photo"></i>
+					</div>
+					<div content-menu>
+						<h2>市场与销售</h2>
+						<a href="">市场推广</a>
+						<a href="">市场总监</a>
+						<i class="menu-photo"></i>
+					</div>
+					<div content-menu>
+						<h2>只能</h2>
+						<a href="">HR</a>
+						<a href="">行政</a>
+						<a href="">财务</a>
+						<a href="">审计</a>
+						<i class="menu-photo"></i>
+					</div>
+					<div content-menu><h2>金融</h2>
+						<a href="">投资</a>
+						<a href="">融资</a>
+						<a href="">并购</a>
+						<a href="">风控</a>
+						<i class="menu-photo"></i>
+					</div>
+				</div>
+				<div class="content-right">
+				</div>
+			</div>
+			<div class="content-top">
+				<ul>
+					<li class="top-left"><a href="">热门职位</a></li>
+					<li class="top-right"><a href="">最新职位</a></li>
+				</ul>
+			</div>
+			<div class="content-middle">
+				<div class="middle-ul">
+					<ul class="clearfix">
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">大数据开发平台</a><span>[1天前发布]</span><strong>7k-14k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验1-3年/本科</p>
+							</div>
+							<div class="table">
+								<span>构架师</span>
+								<span>hadoop</span>
+								<span>数据分析</span>
+							</div>
+							<div class="expand">
+								<p><a href="#">重庆移动</a></p>
+								<p>移动互联网/成熟型(不需要融资)/重庆</p>
+							</div>
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p class="main-content"><a href="#">1018秋招-产品经...</a><span>[18:24发布]</span><strong>10k-20k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验1-3年/本科</p>
+							</div>
+							<div class="table">
+								<span>用户体验</span>
+								<span>项目管理</span>
+							</div>
+							<div class="expand">
+								<div class="expand-future">
+									<p><a href="#">好未来</a></p>
+									<p>移动互联网,教育/上市公司/北京</p>
+								</div>
+							</div>						
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">公关文案主管</a><span>[18:24发布]</span><strong>12k-20k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验3-5年/本科</p>
+							</div>
+							<div class="table">
+								<span>媒体</span>
+								<span>广告营销</span>
+								<span>汽车</span>
+							</div>
+							<div class="expand">
+								<div class="expand-car">
+									<p><a href="#">乐车邦</a></p>
+									<p>移动互联网,O2O/成长型(A轮)/上海</p>
+								</div>
+							</div>						
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">PHP技术专家</a><span>[18:24发布]</span><strong>25k-40k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验5-10年/大专</p>
+							</div>
+							<div class="table">
+								<span>金融</span>
+								<span>支付</span>
+								<span>MySQL</span>
+							</div>
+							<div class="expand">
+								<div class="expand-ping">
+									<p><a href="#">Ping++</a></p>
+									<p>企业服务,金融/成长型(B轮)/上海</p>
+								</div>
+							</div>						
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">企业贷款销售代表...</a><span>[18:24发布]</span><strong>8k-15k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验不限/大专</p>
+							</div>
+							<div class="table">
+								<span>地推</span>
+								<span>客户代表</span>
+								<span>渠道</span>
+							</div>
+							<div class="expand">
+								<div class="expand-game">
+									<p><a href="#">宜信</a></p>
+									<p>金融/上市公司/北京</p>
+								</div>
+							</div>						
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">前端开发工程师</a><span>[18:24发布]</span><strong>10k-20k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验5-10年/本科</p>
+							</div>
+							<div class="table">
+								<span>中级</span>
+								<span>web</span>
+								<span>移动端</span>
+							</div>
+							<div class="expand">
+								<div class="expand-dock">
+									<p><a href="#">安盛祥元</a></p>
+									<p>医疗健康,移动互联网/初创型(未融资)/北京</p>
+								</div>
+							</div>						
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">技术支持工程师(...</a><span>[18:24发布]</span><strong>5k-10k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验1-3年/大专</p>
+							</div>
+							<div class="table">
+								<span>安全</span>
+								<span>初级</span>
+								<span>学习</span>
+							</div>
+							<div class="expand">
+								<div class="expand-net">
+									<p><a href="#">乐车邦</a></p>
+									<p>移动互联网,O2O/成长型(A轮)/上海</p>
+								</div>
+							</div>						
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">C++开发工程师</a><span>[18:24发布]</span><strong>8k-16k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验1-3年/本科</p>
+							</div>
+							<div class="table">
+								<span>工程软件</span>
+								<span>mfc</span>
+								<span>软件开发</span>
+							</div>
+							<div class="expand">
+								<div class="expand-gamecar">
+									<p><a href="#">奇思客</a></p>
+									<p>移动互联网/成长型(A轮)/成都</p>
+								</div>
+							</div>						
+						</li>
+						<li class="middle-main">
+							<div class="main-head">
+								<p><a href="#">报表会计</a><span>[18:24发布]</span><strong>12k-20k</strong></p>
+							</div>
+							<div class="experience">
+								<p>经验应届毕业生/本科</p>
+							</div>
+							<div class="table">
+								<span>金融</span>
+								<span>税务</span>
+								<span>财务</span>
+							</div>
+							<div class="expand">
+								<div class="expand-electron">
+									<p><a href="#">铁甲网</a></p>
+									<p>电子商务,文化娱乐/成熟型(C轮)/北京</p>
+								</div>
+							</div>						
+						</li>
+					</ul>
+				</div>
+				<div class="middle-more">
+					<a href="#">查看更多</a>
+				</div>
+			</div>
+			<div class="content-top">
+				<ul>
+					<li class="top-left"><a href="">热门公司</a></li>
+				</ul>
+			</div>
+			<div class="content-center">
+				<ul class="clearfix">
+					<li>
+						<div class="center-top">
+							<p class="top-top"><a href="#"></a></p>
+							<p class="top-head"><a href="#">皮卷</a></p>
+							<p class="top-middle">移动互联网,数据服务/A轮</p>
+							<p class="top-fotter">每一辆车都有一个公平价</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">1</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">49</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">0%</p>
+								<p class="fotter-middle">简历处理率</p>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="center-top">
+							<p class="top-top"><a href="#" class="top-science"></a></p>
+							<p class="top-head"><a href="#">心游科技</a></p>
+							<p class="top-middle">移动互联网,游戏/上市公司</p>
+							<p class="top-fotter">创新工场旗下新三板首股，专注精品游戏</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">45</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">5</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">100%</p>
+								<p class="fotter-middle">简历处理率</p>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="center-top">
+							<p class="top-top"><a href="#" class="top-fair"></a></p>
+							<p class="top-head"><a href="#">公平价</a></p>
+							<p class="top-middle">移动互联网,数据服务/A轮</p>
+							<p class="top-fotter">每一辆车都有一个公平价</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">46</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">5</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">45</p>
+								<p class="fotter-middle">简历处理率</p>
+							</a>
+						</div>
+					</li>
+					<li class="center-last">
+						<div class="center-top">
+							<p class="top-top"><a href="#" class="top-heart"></a></p>
+							<p class="top-head"><a href="#">悦然心动</a></p>
+							<p class="top-middle">移动互联网,社交网络/上市公司</p>
+							<p class="top-fotter">核心技术团队来自BAT，产品技术实力</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">22</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">14</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">100%</p>
+								<p class="fotter-middle">简历处理率</p>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="center-top">
+							<p class="top-top"><a href="#" class="top-company"></a></p>
+							<p class="top-head"><a href="#">同步推</a></p>
+							<p class="top-middle">移动互联网/上市公司</p>
+							<p class="top-fotter">公司专注于互联网、移动互联网与信息化...</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">86</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">9</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">68%</p>
+								<p class="fotter-middle">简历处理率</p>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="center-top">
+							<p class="top-top"><a href="#" class="top-pig"></a></p>
+							<p class="top-head"><a href="#">猪八戒网</a></p>
+							<p class="top-middle">企业服务,硬件/上市公司</p>
+							<p class="top-fotter">中国最诚信的服务交易平台,西南地区的...</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">107</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">59</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">90%</p>
+								<p class="fotter-middle">就业处理率</p>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="center-top">
+							<p class="top-top"><a href="#" class="top-sky"></a></p>
+							<p class="top-head"><a href="#">盛天网络</a></p>
+							<p class="top-middle">游戏,文化娱乐/上市公司</p>
+							<p class="top-fotter">让精彩互联生活无处不在</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">14</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">3</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">90%</p>
+								<p class="fotter-middle">简历处理率</p>
+							</a>
+						</div>
+					</li>
+					<li class="center-last">
+						<div class="center-top">
+							<p class="top-top"><a href="#" class="top-mouse"></a></p>
+							<p class="top-head"><a href="#">土拨鼠</a></p>
+							<p class="top-middle">移动互联网,电子商务/B轮</p>
+							<p class="top-fotter">宁波地区规模最大且最具潜力的IT企业</p>
+						</div>
+						<div class="center-fotter">
+							<a href="">
+								<p class="fotter-top">91</p>
+								<p class="fotter-middle">面试评价</p>
+							</a>
+							<a href="" class="center-bottom">
+								<p class="fotter-top">16</p>
+								<p class="fotter-middle">在招职位</p>
+							</a>
+							<a href="">
+								<p class="fotter-top">90%</p>
+								<p class="fotter-middle">简历处理率</p>
+							</a>
+						</div>
+					</li>
+				</ul>
+				<a href="" class="top-more">查看更多</a>
+			</div>
+			<div class="content-top">
+				<ul>
+					<li class="top-left"><a href="">友情链接</a></li>
+				</ul>
+			</div>
+			<div class="content-fotter">
+				<ul class="clearfix">
+					<li><a href="">拉勾网</a></li>
+					<li><a href="">大鲲</a></li>
+					<li><a href="">招聘</a></li>
+					<li><a href="">app下载</a></li>
+					<li><a href="">拉勾云</a></li>
+					<li><a href="">中大校网</a></li>
+					<li><a href="">人人都是产品经理</a></li>
+					<li><a href="">教师招聘</a></li>
+					<li><a href="">新疆人才网</a></li>
+					<li><a href="">研究报告</a></li>
+					<li><a href="">互联网的一些事</a></li>
+					<li><a href="">人才招聘网</a></li>
+					<li><a href="">找工作</a></li>
+					<li><a href="">字典</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="content-last content-ab">
+			<div class="last-left">
+				<p class="content-office">
+					<img src="./images/2.png" alt="">
+				</p>
+				<p class="content-logo">
+				<span>在拉勾，发现新的职业机会</span>
+				<strong>265682公司&nbsp&nbsp|&nbsp&nbsp2672208职位</strong>
+				</p>
+			</div>
+		</div>
+		<div class="content-none">
+		</div>
+	</div>
+		<script type="text/javascript">
+	    $(function(){
+	      $(window).scroll(function(){
+	        var contentNoneHeight = $(".content-none").height();
+	        var bodyHeight = $("body").height();
+	        var windowHeight = $(window).height();
+	        var scrollHeight = $(window).scrollTop();
+	        // scrollTop滚动条滚动的距离
+	        if((scrollHeight + windowHeight) >= (bodyHeight - contentNoneHeight)) {
+	          $(".content-last").addClass("content-ab").removeClass("content-tip")
+	        }else {
+	          $(".content-last").addClass("content-tip").removeClass("content-ab")
+	        }
+	      })
+	    })
+	</script>
+</body>
+</html>
